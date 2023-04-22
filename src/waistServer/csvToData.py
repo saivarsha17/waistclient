@@ -15,6 +15,6 @@ with open('./measurements.csv', 'r') as csv_file:
        
         data.append(row)
         insertData(row)
-    # print(data)
+    
        
        

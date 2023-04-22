@@ -19,10 +19,10 @@ def insertData(data):
         weight=data[1]
         age=data[2]
         waist=data[3]
-        print(height,weight,age,waist)
+       
 
         result=cursor.execute(check_query, (height,weight,age,waist))
-        # print(result,"check",type(result))
+        
         if(result==0):
             cursor.execute(insert_query, (height,weight,age,waist))
 
@@ -46,7 +46,7 @@ def rangeWaist(data):
             END'''
     
    
-    # range_query="SELECT MAX(waist),MIN(waist) FROM waisttable Where ABS(height-%s)<=1 AND ABS(weight-%s)<=1 AND ABS(age-%s)<=1"
+   
     range_query='''SELECT MAX(waist) AS max,MIN(waist) AS min
             FROM waisttable
             ORDER BY  euclidean_distance(height, weight,age, %s, %s,%s)
@@ -58,11 +58,11 @@ def rangeWaist(data):
     cursor.execute(range_query, (height,weight,age))
     
     result= list(cursor.fetchone())
-    print(result,"resultcheck",type(result),result[0])
+    
     
     max_waist = max(result)
     min_waist = min(result)
-    # print(max_waist,type(max_waist),float(max_waist))
+    
     conn.commit()
     return [float(min_waist),float(max_waist)]
 

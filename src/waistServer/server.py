@@ -13,10 +13,10 @@ def range():
     height = request.form.get('height')
     weight = request.form.get('weight')
     age = request.form.get('age')
-    print(height,weight,age)
+   
     data=[height,weight,age]
     result=rangeWaist(data)
-    print("result",result)
+   
     data = {
         'Max': max(result),
         'Min': min(result)
@@ -24,7 +24,7 @@ def range():
     }
     return jsonify(data)
     
-    # return f'{result[0],result[1]}'
+   
 @app.route('/insert', methods=['POST'])
 def insert():
     height = request.form.get('height')
@@ -33,7 +33,7 @@ def insert():
     waist=request.form.get('waist')
     data=[height,weight,age,waist]
     result=insertData(data)
-    # print(result,type(result),"check")
+   
     
     return f'{result}'
 
