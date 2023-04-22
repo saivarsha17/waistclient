@@ -36,7 +36,7 @@ def rangeWaist(data):
     height=data[0]
     weight=data[1]
     age=data[2]
-    print(type(height))
+    
     distance_query='''CREATE FUNCTION euclidean_distance(x1 FLOAT, y1 FLOAT,z1 FLOAT, x2 FLOAT, y2 FLOAT, z2 FLOAT)
             RETURNS FLOAT
             BEGIN
